@@ -20,7 +20,12 @@ var campgroundRoutes = require('./routes/campgrounds'),
 	indexRoutes = require('./routes/index');
 	
 
-mongoose.connect('mongodb+srv://AbbyXing:Asdf1234@cluster0-k6emz.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(() => {
+// mongoose.connect('mongodb+srv://AbbyXing:Asdf1234@cluster0-k6emz.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(() => {
+// 	console.log('connected to DB!!!');
+// }).catch(err => {
+// 	console.log('Error:', err.message);
+// });
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true}).then(() => {
 	console.log('connected to DB!!!');
 }).catch(err => {
 	console.log('Error:', err.message);
